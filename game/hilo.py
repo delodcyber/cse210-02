@@ -7,5 +7,8 @@ class Hilo:
     The next card will be displayed. 
     """
 
-    def __init__(self) -> None:
+    def __init__(self):
+        self.point = 300
+
+    def shuffle(self):
         pass
