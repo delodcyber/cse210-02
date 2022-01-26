@@ -42,6 +42,11 @@ class Player:
             self.points += 100
         elif (Hilo.high_or_low == 1 and self.guess_hilo == "l") or (Hilo.high_or_low == -1 and self.guess_hilo == "h"):
             self.points -= 75
+            # while True:
+            #     choice = input("higher or lower? [h/l] ")
+            #     if len(choice) > 0:
+            #         if choice[0].lower() in ["h","l"]:
+            #             break
                 # if (self.guess_hilo == 1 and self.card2 > self.card1):
                 #     self.points += 100
                 # elif (self.guess_hilo == -1 and self.card2 < self.card1):
