@@ -36,4 +36,6 @@ class Hilo:
         if self.card2 > self.card1:     # check for high card
             return 1
         elif self.card2 < self.card1:   # check for low card
+            return 0
+        else:                           # same value card
             return -1

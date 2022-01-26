@@ -17,18 +17,19 @@ class Player:
         self.points = 300
         self.is_playing = True
         self.total_points = 0
-        self.card = Hilo()
-    
+        self.hl = 0
 
+    
     def play_game(self):
         """
         Start the game Hilo 
         """
         while self.is_playing:
-            self.card.show_card1()                           
-            self.guess_hilo()
+            card = Hilo()
+            card.show_card1() 
+            self.hl = card.high_or_low()                       
             self.update_points()
-            self.card.show_card2()                                   
+            card.show_card2()                                   
             self.display_score()
             self.play_again()
         
@@ -44,10 +45,14 @@ class Player:
         """
         It will add or substract point from the user. 
         """
-        if (Hilo.high_or_low == 1 and self.guess_hilo == "h") or (Hilo.high_or_low == -1 and self.guess_hilo == "l"):
+        player_guess = self.guess_hilo()
+
+        if (self.hl == 1 and player_guess == "h") or (self.hl == 0 and player_guess == "l"):
             self.points += 100
-        elif (Hilo.high_or_low == 1 and self.guess_hilo == "l") or (Hilo.high_or_low == -1 and self.guess_hilo == "h"):
+        elif (self.hl == 1 and player_guess == "l") or (self.hl == 0 and player_guess == "h"):
             self.points -= 75
+        else:
+            self.points += 0
     
     def display_score(self):
         """
@@ -61,17 +66,18 @@ class Player:
         Ask the user if they want to play again and check if points are not 0
         """
         again = input("Play again? [y/n]: ")
+
         if self.points > 0 and again == "y":
             self.is_playing = True
             print()
         elif self.points <= 0 or again == "n":
             print("Game is over.")
             print()
-            self.is_playing = False
+            self.is_playing = False 
             
 
-p = Player()
-p.play_game()
+#p = Player()
+#p.play_game() 
 
 
 
