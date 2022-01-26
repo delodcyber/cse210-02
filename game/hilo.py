@@ -26,7 +26,7 @@ class Hilo:
         """
         Display second card to the user. 
         """
-        output = f'The card is: {self.card2}'
+        output = f'Next card was: {self.card2}'
         print(output)
 
 

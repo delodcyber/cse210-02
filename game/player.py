@@ -8,6 +8,7 @@ class Player:
         Construct a player object.
         """
         c = Hilo()
+        self.cards = random.randint(1,14)
         self.points = 300
         self.is_playing = True
         self.total_points = ()
@@ -31,32 +32,26 @@ class Player:
         """
         #Ask user for a higher or lower guess. 
         """
-        guess = input("Higher or lower? [h/l] ")
-        return guess
+        # guess = input("Higher or lower? [h/l] ")
+        # return guess
 
     def update_points(self):
         """
         It will add or substract point from the user. 
         """
-        cards = random.randint(1,14)
-        while True:
-            os.system("cls") # linux "clear
-            print("Your score so far is", self.points)
-            print("\n\nThe current card is", cards)
-            while True:
-                guess = input("higher or lower? [h/l] ")
-                if len(guess) > 0:
-                    if guess.lower() in ["h","l"]:
-                        break
-            
-                if (self.guess_hilo == "h" and self.card2 > self.card1):
-                    self.points += 100
-                if (self.guess_hilo == "h" and self.card2 < self.card1):
-                    self.points -= 75
-                if (self.guess_hilo == "l" and self.card2 < self.card1):
-                    self.points += 100  
-                if (self.guess_hilo == "l" and self.card2 > self.card1):
-                    break
+        guess = input("Higher or lower? [h/l] ")
+        if guess == "h" and self.card2 > self.card1:
+            self.points += 100
+        if guess == "h" and self.card2 < self.card1:
+            self.points -= 75
+        if guess == "l" and self.card2 < self.card1:
+            self.points += 100  
+        if guess == "l" and self.card2 > self.card1:
+            self.points -= 75
+        # if (guess == 1 and self.guess_hilo == "h") or (guess == -1 and self.guess_hilo == "l"):
+        #     self.points += 100
+        # elif (guess == 1 and self.guess_hilo == "l") or (guess == -1 and self.guess_hilo == "h"):
+        #     self.points -= 75
         
     def display_score(self):
         """
