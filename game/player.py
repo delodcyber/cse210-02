@@ -77,6 +77,3 @@ class Player:
             print(f"Total score: {self.total_points}")
             self.is_playing = False
         print()
-
-p = Player()
-p.play_game()
