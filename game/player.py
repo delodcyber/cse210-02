@@ -15,20 +15,20 @@ class Player:
         Construct a player object.
         """
         self.points = 300
-        #self.guess = ""
         self.is_playing = True
         self.total_points = 0
-        c = Hilo()
+        self.card = Hilo()
+    
 
     def play_game(self):
         """
         Start the game Hilo 
         """
         while self.is_playing:
-            Hilo.show_card1(self)
+            self.card.show_card1()                           
             self.guess_hilo()
             self.update_points()
-            Hilo.show_card2(self)
+            self.card.show_card2()                                   
             self.display_score()
             self.play_again()
         
@@ -37,7 +37,7 @@ class Player:
         """ 
         Ask user for a higher or lower guess. 
         """
-        guess = input("Higher or lower? [h/l] ")
+        guess = input("Higher or lower? [h/l]: ")
         return guess
 
     def update_points(self):
@@ -60,12 +60,15 @@ class Player:
         """
         Ask the user if they want to play again and check if points are not 0
         """
-        again = input("Play again? [y/n] ")
+        again = input("Play again? [y/n]: ")
         if self.points > 0 and again == "y":
             self.is_playing = True
+            print()
         elif self.points <= 0 or again == "n":
             print("Game is over.")
+            print()
             self.is_playing = False
+            
 
 p = Player()
 p.play_game()
