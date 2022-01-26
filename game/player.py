@@ -1,4 +1,4 @@
-import random
+import random, os
 from hilo import Hilo
 
 class Player:
@@ -10,7 +10,7 @@ class Player:
         c = Hilo()
         self.points = 300
         self.is_playing = True
-        self.total_points = 0
+        self.total_points = ()
         self.card1 = random.randint(1,14)
         self.card2 = random.randint(1,14)
         
@@ -38,26 +38,26 @@ class Player:
         """
         It will add or substract point from the user. 
         """
-        if (Hilo.high_or_low == 1 and self.guess_hilo == "h") or (Hilo.high_or_low == -1 and self.guess_hilo == "l"):
-            self.points += 100
-        elif (Hilo.high_or_low == 1 and self.guess_hilo == "l") or (Hilo.high_or_low == -1 and self.guess_hilo == "h"):
-            self.points -= 75
-            # while True:
-            #     choice = input("higher or lower? [h/l] ")
-            #     if len(choice) > 0:
-            #         if choice[0].lower() in ["h","l"]:
-            #             break
-                # if (self.guess_hilo == 1 and self.card2 > self.card1):
-                #     self.points += 100
-                # elif (self.guess_hilo == -1 and self.card2 < self.card1):
-                #     self.points -= 75
-                # elif (self.guess_hilo == 1 and self.card2 < self.card1):
-                #     self.points += 100
-                # elif (self.guess_hilo == -1 and self.card2 > self.card1):
-                #     self.points -= 75
-                #else:
-                #    print("Draw!")
-
+        cards = random.randint(1,14)
+        while True:
+            os.system("cls") # linux "clear
+            print("Your score so far is", self.points)
+            print("\n\nThe current card is", cards)
+            while True:
+                guess = input("higher or lower? [h/l] ")
+                if len(guess) > 0:
+                    if guess.lower() in ["h","l"]:
+                        break
+            
+                if (self.guess_hilo == "h" and self.card2 > self.card1):
+                    self.points += 100
+                if (self.guess_hilo == "h" and self.card2 < self.card1):
+                    self.points -= 75
+                if (self.guess_hilo == "l" and self.card2 < self.card1):
+                    self.points += 100  
+                if (self.guess_hilo == "l" and self.card2 > self.card1):
+                    break
+        
     def display_score(self):
         """
         Display final score to the player.
