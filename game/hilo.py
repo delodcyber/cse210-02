@@ -1,4 +1,16 @@
-print(">Welcome to HiLo Games<")
+import sys
+import time
+def print_1(text):
+    #this types out the words on the screen all fancy game-like. So instead of typing "print" type "print_1" and it should work for whatever statements are made!
+    words = text
+    time.sleep(.8)
+    for char in words:
+        time.sleep(0.03)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    print('')
+
+print_1(">Welcome to HiLo Games<")
 import random
 
 class Hilo:
@@ -26,7 +38,7 @@ class Hilo:
         Display first card to the user.
         """
         output = f'The card is: {self.card1}'
-        print(output)
+        print_1(output)
 
     def show_card2(self):
         """
@@ -34,12 +46,12 @@ class Hilo:
         """
 <<<<<<< HEAD
         output = f'The card is: {self.card2}'
-        print(output)
+        print_1(output)
 
     
 =======
         output = f'Next card was: {self.card2}'
-        print(output)
+        print_1(output)
 
 
 >>>>>>> ff3c3e691da145085b5512f2846e8fb28b4d545d
