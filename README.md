@@ -5,10 +5,6 @@ Hi-Lo is played with a standard single 52 deck of cards
 The game is played with 2 or more players
 
 ##Simple rules for this game
-In this game, the order of cards is: 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A;
-  Ace is the bigger
-  2 is the lower 
-The game will run shuffle, means you will not know the next coming card
 
 300 points in the beginning
 - if your guess is right, your points will be added 100 points
@@ -23,7 +19,7 @@ The game will run shuffle, means you will not know the next coming card
   if no, Game is over
 
 #Authors
-- Julieta White
+- Julieta White (gitHub juliwhite)
 - Teddy Tjoe
 - John Adeloye
-- Cait Bair
+- Cait Bair (gitHub: PureUrsa )
