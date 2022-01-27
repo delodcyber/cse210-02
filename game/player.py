@@ -17,7 +17,6 @@ class Player:
         self.is_playing = True
         self.total_points = 0
         self.hl = 0
-        
     def play_game(self):
         """
         Start the game Hilo
@@ -30,14 +29,12 @@ class Player:
             card.show_card2()
             self.display_score()
             self.play_again()
-
     def guess_hilo(self):
         """
-        Ask user for a higher or lower guess.
+        Ask user for a higher or lower card.
         """
         guess = input("Higher or lower? [h/l]: ")
         return guess
-
     def update_points(self):
         """
         It will add or substract point from the user.
@@ -49,14 +46,12 @@ class Player:
             self.points -= 75
         else:
             self.points += 0
-
     def display_score(self):
         """
         Display final score to the player.
         """
         self.total_points = self.points
         print(f'Your score is:  {self.total_points}')
-
     def play_again(self):
         """
         Ask the user if they want to play again and check if points are not 0
