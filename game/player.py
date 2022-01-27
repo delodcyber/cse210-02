@@ -1,6 +1,19 @@
 <<<<<<< HEAD
 =======
 import random, os
+import time
+import sys
+
+def print_1(text):
+    #this types out the words on the screen all fancy game-like. So instead of typing "print" type "print_1" and it should work for whatever statements are made!
+    words = text
+    time.sleep(.8)
+    for char in words:
+        time.sleep(0.03)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    print('')
+    
 >>>>>>> ff3c3e691da145085b5512f2846e8fb28b4d545d
 from hilo import Hilo
 
@@ -47,7 +60,11 @@ class Player:
         """ 
         Ask user for a higher or lower guess. 
         """
-        guess = input("Higher or lower? [h/l]: ")
+        print_1("Higher or lower?")
+        guess = input("[h/l]: ").lower()
+        while guess != 'y' and guess != 'n':
+            print_1("Sorry, please pick one of the given options.")
+            guess = input("[h/l]: ").lower()
         return guess
 
     def update_points(self):
@@ -109,8 +126,11 @@ class Player:
         """
         Ask the user if they want to play again and check if points are not 0
         """
-        again = input("Play again? [y/n]: ")
-
+        print_1("Play again?")
+        again = input("[y/n]: ").lower()
+        while again != "y" and again != "n":
+                print_1("Sorry, please pick one of the given options.")
+                again = input("[y/n]: ").lower()
         if self.points > 0 and again == "y":
             self.is_playing = True
             print()
@@ -118,6 +138,9 @@ class Player:
             print("Game is over.")
             print()
             self.is_playing = False 
+            print_1("Press 'enter' to exit")
+            input(" ")
+            exit()
             
 
 #p = Player()
@@ -133,11 +156,20 @@ class Player:
         """
         Ask the user if they want to play again and check if points are not 0
         """
-        again = input("Play again? [y/n] ")
+        print_1("Play again?")
+        again = input("[y/n]: ").lower()
+        while again != "y" and again != "n":
+                print_1("Sorry, please pick one of the given options.")
+                again = input("[y/n]: ").lower()
         if self.points > 0 and again == "y":
             self.is_playing = True
         elif self.points <= 0 or again == "n":
-            print("Game Over")
-            print(f"Total score: {self.total_points}")
+            print_1("Game Over")
+            print_1(f"Total score: {self.total_points}")
             self.is_playing = False
-        print()
+            print()
+        print_1("Press 'enter' to exit")
+        input(" ")
+        exit()
+        
+        
